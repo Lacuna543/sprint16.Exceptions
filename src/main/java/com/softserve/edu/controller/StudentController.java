@@ -7,11 +7,14 @@ import com.softserve.edu.service.UserService;
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -121,5 +124,14 @@ public class StudentController {
         }
         studentService.deleteUserById(id);
         return "redirect:/students";
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ModelAndView handleMyCustomException(DataIntegrityViolationException exception) {
+        ModelAndView model = new ModelAndView("error_page");
+        String message = "User with the same email is already registered";
+        model.addObject("info", message);
+        model.setStatus(HttpStatus.BAD_REQUEST);
+        return model;
     }
 }
