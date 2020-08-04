@@ -9,13 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-import javax.transaction.Transactional;
-import javax.validation.ConstraintViolationException;
-import java.time.LocalDate;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
@@ -46,5 +39,17 @@ public class Application extends SpringBootServletInitializer {
 //	}
 //
 //	@Override
-//	public void run(String... args) throws Exception {	}
+//	public void run(String... args) throws Exception {
+//
+//		Sprint sprint = new Sprint();
+//		sprint.setTitle("Stream API");
+//		sprintService.addSprintToMarathon(sprint, marathonService.getMarathonById(2L));
+//		Task task = new Task();
+//		task.setTitle("some task");
+//		taskService.addTaskToSprint(task, sprintService.getSprintById(2L));
+//		Progress progress = new Progress();
+//		progressService.addOrUpdateProgress(progress);
+//		User student = userService.getAllByRole(User.Role.TRAINEE.toString()).get(0);
+//		progressService.addTaskForStudent(task, student);
+//    }
 //}
