@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <title>Edit existing Marathon</title>
 </head>
 <body>
+<div class="container">
     <div th:replace="header"></div>
     <h2>Edit existing Marathon</h2>
     <form th:object="${marathon}" method="post">
-        <table>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tbody>
             <tr>
                 <td>
                     <label for="id">Id:</label>
@@ -34,10 +44,12 @@
                     <input type="reset" value="Clear" />
                 </td>
             </tr>
+        </tbody>
         </table>
         <input type="hidden" name="id" th:value="*{id}">
     </form>
     <br>
     <a th:href="@{/marathons}">Go to Marathons page</a>
+</div>
 </body>
 </html>

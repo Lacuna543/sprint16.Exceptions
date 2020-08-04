@@ -35,7 +35,7 @@ public class StudentController {
         return "create-student";
     }
 
-    @PostMapping("students/{marathon_id}/add")
+    @PostMapping("/students/{marathon_id}/add")
     public String createStudent(@PathVariable("marathon_id") long marathonId, @Validated @ModelAttribute User user, BindingResult result) {
         logger.info("creation Student in marathon \"" + marathonService.getMarathonById(marathonId).getTitle() + "\"");
         if (result.hasErrors()) {
@@ -47,7 +47,8 @@ public class StudentController {
         return "redirect:/students/" + marathonId;
     }
 
-    @GetMapping("students/{marathon_id}/add")
+    @GetMapping("/students/{marathon_id}/add")
+    @RequestMapping("/favicon.ico")
     public String createStudent(@RequestParam("user_id") long userId, @PathVariable("marathon_id") long marathonId) {
         logger.info("add students to marathon with id " + marathonId + " page was opened");
         studentService.addUserToMarathon(

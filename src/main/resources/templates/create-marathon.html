@@ -2,13 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create new Marathon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 <body>
     <div th:replace="header"></div>
     <h2>Create new Marathon</h2>
     <form th:action="@{/marathons}" th:object="${marathon}" method="post">
-        <table>
+        <table class="table table-bordered table-striped">
             <tr>
                 <td>
                     <label for="title">Title:</label>

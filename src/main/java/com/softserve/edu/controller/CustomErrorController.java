@@ -1,4 +1,4 @@
-package com.softserve.edu.exception;
+package com.softserve.edu.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
