@@ -97,7 +97,7 @@ public class MarathonController {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ModelAndView handleMyCustomException(DataIntegrityViolationException exception) {
         ModelAndView model = new ModelAndView("error_page");
-        String message = "Can't delete current marathon because it has sprint(s)";
+        String message = "Can't delete current marathon because it has sprint(s) with task(s)";
         model.addObject("info", message);
         model.setStatus(HttpStatus.BAD_REQUEST);
         return model;
